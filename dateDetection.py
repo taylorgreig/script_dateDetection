@@ -1,7 +1,5 @@
 #!python3
 
-# Script to auto submit certificates
-
 import re
 
 dateRegex = re.compile(r'''
@@ -33,7 +31,3 @@ if mo:
     #print(mo.groups([0]))
 else:
     print('No match found.')
-    
-
-# This is a test edit
-
