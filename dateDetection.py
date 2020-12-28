@@ -2,6 +2,7 @@
 
 import re
 
+# Regular expression to detect dates
 dateRegex = re.compile(r'''
     (\d{1,2})                   # DD or MM
     ([/.-])                     # seperator 1
@@ -10,7 +11,7 @@ dateRegex = re.compile(r'''
     (\d{2,4})                   # YY or YYYY
     ''', re.VERBOSE)
 
-# User inputs date format
+# User inputs date format they would like to use.
 dateFormatDMY = True
 
 if input('''\nWhich date format would you like to use?
@@ -22,12 +23,25 @@ if input('''\nWhich date format would you like to use?
 else:
     dateFormatDMY = True
 
-dates = []
+# User inputs date
+mo = dateRegex.search(input('Input a date: ')).groups()
+print("TEST: input match object",mo) #test
 
-mo = dateRegex.findall(input('Input a date: '))
+# Set DMY variable index numbers
+day = mo[0]
+month = mo[2]
+year = mo[4]
+
+print("TEST: match object, index 0: ",day)
+print("TEST: match object, index 0: ",month)
+print("TEST: match object, index 0: ",year)
+
+
+"""
 if mo:
-    #dates.append()
     print('Match found.')
-    #print(mo.groups([0]))
+    print(mo)
+#    print(month, day, year)
 else:
     print('No match found.')
+"""
