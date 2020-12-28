@@ -18,23 +18,29 @@ if input('''\nWhich date format would you like to use?
         \n1) DD/MM/YYYY
         \n2) MM/DD/YYYY
         \nType '1' or '2': 
-        ''') != 1:
-    dateFormatDMY = False
-else:
+        ''') == '1':
     dateFormatDMY = True
+else:
+    dateFormatDMY = False
 
+print(dateFormatDMY)
 # User inputs date
 mo = dateRegex.search(input('Input a date: ')).groups()
 print("TEST: input match object",mo) #test
 
 # Set DMY variable index numbers
-day = mo[0]
-month = mo[2]
-year = mo[4]
-
-print("TEST: match object, index 0: ",day)
-print("TEST: match object, index 0: ",month)
-print("TEST: match object, index 0: ",year)
+if dateFormatDMY:
+    day = mo[0]
+    month = mo[2]
+    year = mo[4]
+else:
+    month = mo[0]
+    day = mo[2]
+    year = mo[4]
+print(dateFormatDMY)
+print("TEST: match object, day: ",day)
+print("TEST: match object, month: ",month)
+print("TEST: match object, year: ",year)
 
 
 """
